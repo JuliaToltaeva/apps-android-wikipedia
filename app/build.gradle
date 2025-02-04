@@ -40,7 +40,7 @@ android {
         targetSdk 35
         versionCode 50518
         testApplicationId 'org.wikipedia.test'
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.kaspersky.kaspresso.runner.KaspressoRunner"
         testInstrumentationRunnerArguments clearPackageData: 'true'
 
         vectorDrawables.useSupportLibrary = true
@@ -73,7 +73,7 @@ android {
 
     sourceSets {
 
-        [ prod, beta, alpha, dev, custom ].forEach {
+        [prod, beta, alpha, dev, custom].forEach {
             it.java.srcDirs += 'src/extra/java'
             it.res.srcDirs += 'src/extra/res'
         }
@@ -135,7 +135,7 @@ android {
         custom {
             versionName computeVersionName(defaultConfig.versionCode, customChannel)
             // next line is for injecting a custom channel value into the custom/AndroidManifest.xml
-            manifestPlaceholders = [customChannel:getProperty('customChannel').toString()]
+            manifestPlaceholders = [customChannel: getProperty('customChannel').toString()]
             signingConfig signingConfigs.prod
         }
     }
@@ -257,12 +257,8 @@ dependencies {
     testImplementation libs.hamcrest
     testImplementation libs.room.testing
 
-    androidTestImplementation libs.espresso.core
     androidTestImplementation libs.espresso.contrib
-    androidTestImplementation libs.androidx.espresso.intents
-    androidTestImplementation libs.espresso.web
     androidTestImplementation libs.androidx.junit
-    androidTestImplementation libs.androidx.uiautomator
     androidTestImplementation libs.room.testing
     androidTestUtil libs.androidx.orchestrator
 
@@ -279,10 +275,11 @@ dependencies {
     // Compose Test Library
     androidTestImplementation(libs.compose.test)
     androidTestImplementation(composeBom)
+    androidTestImplementation 'com.kaspersky.android-components:kaspresso:1.5.4'
 }
 
 private setSigningConfigKey(config, Properties props) {
-    if(props != null) {
+    if (props != null) {
         config.storeFile = props['keystore'] == null ? null : file(props['keystore'])
         config.storePassword = props['store.pass']
         config.keyAlias = props['key.alias']
