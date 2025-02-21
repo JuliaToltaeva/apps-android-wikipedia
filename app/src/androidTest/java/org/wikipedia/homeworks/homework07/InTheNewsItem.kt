@@ -10,27 +10,32 @@ import org.wikipedia.R
 import org.wikipedia.feed.view.CardHeaderView
 
 // Описать блок:
-// - блок Top Read (с вложенным ресайклером),
+// - блок In the news (с вложенным ресайклером).
 
-class TopReadItems(matcher: Matcher<View>) : KRecyclerItem<TopReadItems>(matcher) {
-    val headerTopRead = KTextView(matcher) {
+class InTheNewsItem(matcher: Matcher<View>) : KRecyclerItem<InTheNewsItem>(matcher) {
+    val headerTheNewsItem = KTextView(matcher) {
         withId(R.id.view_card_header_title)
     }
 
-    val topReadMenu = KImageView(matcher) {
+    val inTheNewsItemMenu = KImageView(matcher) {
         withId(R.id.view_list_card_header_menu)
         withParent {
             isInstanceOf(CardHeaderView::class.java)
         }
     }
 
-    val recyclerTopRead = KRecyclerView(
+    // заголовок и кнопка меню повторяют по содержанию class TopReadItem(matcher: Matcher<View>)
+    // как будто бы нет смысла их описывать
+
+    val recyclerInTheNews = KRecyclerView(
         builder = {
             withId(R.id.feed_view)
         },
         itemTypeBuilder = {
-            itemType(::SearchCardViewItem)
-            itemType(::TopReadRecycler)
+            itemType(::InTheNewsItemRecycler)
         }
     )
+
+    // возможно тут нужен другой ID
+
 }

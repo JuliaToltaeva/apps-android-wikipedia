@@ -9,8 +9,6 @@ import org.wikipedia.R
 import org.wikipedia.feed.view.FeedView
 
 // Домашнее задание №7. PageObject, списочные элементы.
-// Описать блок:
-// - блок In the news (с вложенным ресайклером).
 // Классы описаний блоков должны быть в отдельных файлах.
 // Описанные блоки добавить в типы блоков ресайклера экрана Explore.
 
@@ -30,7 +28,8 @@ object ExploreScreen : KScreen<ExploreScreen>() {
             itemType(::SearchCardViewItem)
             itemType(::AnnouncementCardViewItem)
             itemType(::DayHeaderCardViewItem)
-            itemType(::TopReadItems)
+            itemType(::TopReadItem)
+            itemType(::InTheNewsItem)
         }
     )
 
