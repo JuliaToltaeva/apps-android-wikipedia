@@ -28,6 +28,7 @@ class InTheNewsItem(matcher: Matcher<View>) : KRecyclerItem<InTheNewsItem>(match
     // как будто бы нет смысла их описывать
 
     val recyclerInTheNews = KRecyclerView(
+        parent = matcher,
         builder = {
             withId(R.id.feed_view)
         },

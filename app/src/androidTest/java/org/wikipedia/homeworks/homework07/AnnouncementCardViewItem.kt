@@ -14,20 +14,20 @@ import org.wikipedia.R
 class AnnouncementCardViewItem(matcher: Matcher<View>) :
     KRecyclerItem<AnnouncementCardViewItem>(matcher) {
 
-    val imageCustomize = KImageView {
+    val imageCustomize = KImageView(matcher) {
         withId(R.id.view_announcement_header_image)
     }
 
-    val textCustomize = KTextView {
+    val textCustomize = KTextView(matcher) {
         withId(R.id.view_announcement_text)
         withText(R.string.feed_configure_onboarding_text)
     }
 
-    val customizeButton = KButton {
+    val customizeButton = KButton(matcher) {
         withId(R.id.view_announcement_action_positive)
     }
 
-    val gotItButton = KButton {
+    val gotItButton = KButton(matcher) {
         withId(R.id.view_announcement_action_negative)
     }
 
