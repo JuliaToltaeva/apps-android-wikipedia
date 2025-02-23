@@ -45,7 +45,7 @@ class OnboardingScreenTests : TestCase() {
     fun testFour() {
         run{
             step("continueButton isClickable") {
-                OnboardingScreen.continueButton.isNotClickable()
+                OnboardingScreen.continueButton.isClickable()
             }
         }
     }
