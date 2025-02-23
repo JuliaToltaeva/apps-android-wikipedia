@@ -168,6 +168,8 @@ apply from: '../gradle/src/checkstyle.gradle'
 apply from: '../gradle/src/ktlint.gradle'
 
 dependencies {
+    implementation libs.androidx.espresso.intents
+
 
     // To keep the Maven Central dependencies up-to-date
     // use http://gradleplease.appspot.com/ or http://search.maven.org/.
@@ -179,6 +181,8 @@ dependencies {
     implementation libs.kotlinx.coroutines.core
     implementation libs.kotlinx.coroutines.android
     implementation libs.kotlinx.serialization.json
+
+    //implementation("org.hamcrest:hamcrest:2.2")
 
     implementation libs.material
     implementation libs.appcompat
