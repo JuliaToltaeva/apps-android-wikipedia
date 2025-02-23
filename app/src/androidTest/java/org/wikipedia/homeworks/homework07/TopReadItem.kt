@@ -24,10 +24,10 @@ class TopReadItem(matcher: Matcher<View>) : KRecyclerItem<TopReadItem>(matcher) 
         }
     }
 
-    val recyclerTopRead = KRecyclerView(
+    val items = KRecyclerView(
         parent = matcher,
         builder = {
-            withId(R.id.feed_view)
+            withId(R.id.view_list_card_list)
         },
         itemTypeBuilder = {
             itemType(::TopReadItemRecycler)
