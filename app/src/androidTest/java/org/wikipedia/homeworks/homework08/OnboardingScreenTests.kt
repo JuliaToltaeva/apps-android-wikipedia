@@ -16,7 +16,7 @@ class OnboardingScreenTests : TestCase() {
 
     @Test
     fun testOne() {
-        run{
+        run {
             step("addOrEditLanguagesButton isDisplayed") {
                 OnboardingScreen.addOrEditLanguagesButton.isDisplayed()
             }
@@ -25,7 +25,7 @@ class OnboardingScreenTests : TestCase() {
 
     @Test
     fun testTwo() {
-        run{
+        run {
             step("skipButton isClickable") {
                 OnboardingScreen.skipButton.isClickable()
             }
@@ -34,23 +34,21 @@ class OnboardingScreenTests : TestCase() {
 
     @Test
     fun testThree() {
-        run{
+        run {
             step("swipe") {
                 OnboardingScreen.items.swipeUp()
-                }
             }
         }
+    }
 
     @Test
     fun testFour() {
-        run{
+        run {
             step("continueButton isClickable") {
                 OnboardingScreen.continueButton.isClickable()
             }
         }
     }
-
-
 
 }
 
