@@ -13,8 +13,9 @@ import org.wikipedia.feed.view.CardHeaderView
 // - блок In the news (с вложенным ресайклером).
 
 class InTheNewsItem(matcher: Matcher<View>) : KRecyclerItem<InTheNewsItem>(matcher) {
-    val headerTheNewsItem = KTextView(matcher) {
-        withId(R.id.view_card_header_title)
+    val inTheNewsHeader = KTextView(matcher) {
+//        withId(R.id.view_card_header_title)
+        withText("In the news")
     }
 
     val inTheNewsItemMenu = KImageView(matcher) {
@@ -30,7 +31,7 @@ class InTheNewsItem(matcher: Matcher<View>) : KRecyclerItem<InTheNewsItem>(match
     val recyclerInTheNews = KRecyclerView(
         parent = matcher,
         builder = {
-            withId(R.id.feed_view)
+            withId(R.id.news_cardview_recycler_view)
         },
         itemTypeBuilder = {
             itemType(::InTheNewsItemRecycler)
