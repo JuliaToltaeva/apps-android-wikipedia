@@ -1,15 +1,15 @@
 package org.wikipedia.homeworks.homework09
 
-import androidx.compose.ui.test.hasText
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import org.junit.Rule
 import org.junit.Test
+import org.wikipedia.R
 import org.wikipedia.homeworks.homework07.ExploreScreen
-import org.wikipedia.homeworks.homework07.InTheNewArticle
+import org.wikipedia.homeworks.homework07.ArticleScreen
 import org.wikipedia.homeworks.homework07.InTheNewsScreen
 import org.wikipedia.homeworks.homework07.InTheNewsItem
-import org.wikipedia.homeworks.homework07.InTheNewsItemRecycler
+import org.wikipedia.homeworks.homework07.InTheNewsItemRec
 import org.wikipedia.homeworks.homework07.InTheNewsItemRecInRec
 import org.wikipedia.homeworks.homework08.OnboardingScreen
 import org.wikipedia.main.MainActivity
@@ -32,37 +32,30 @@ class InTheNewsTests : TestCase() {
     @Test
     fun checkElementPageWebView() {
         run {
-            OnboardingScreen {
-                step("skip onboarding") {
-                    skipButton
-                        .click()
-                }
+            step("skip onboarding") {
+                OnboardingScreen.skipButton.click()
             }
-            ExploreScreen
-                .items
-                .childAt<InTheNewsItem>(7) {
-                    step("click In the news") {
-                        inTheNewsHeader.click()
+            ExploreScreen.items
+                .childWith<InTheNewsItem> {
+                    withDescendant {
+                        withText(R.string.view_card_news_title)
                     }
+                }.invoke {
                     step("click on image #3") {
-                        recyclerInTheNews.childAt<InTheNewsItemRecycler>(2) {
+                        items.childAt<InTheNewsItemRec>(2) {
                             click()
                         }
                     }
                 }
-            InTheNewsScreen
-                .items3
+            InTheNewsScreen.items
                 .childAt<InTheNewsItemRecInRec>(1) {
                     step("click on article #2") {
-                        articleName.click()
+                        title.click()
                     }
                 }
-            InTheNewArticle {
-                step("") {
-                    pageWebView.isVisible()
-                }
+            step("look for pageWebView") {
+                ArticleScreen.pageWebView.isVisible()
             }
-
         }
     }
 }

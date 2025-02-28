@@ -5,11 +5,11 @@ import io.github.kakaocup.kakao.common.views.KView
 import io.github.kakaocup.kakao.text.KTextView
 import org.wikipedia.R
 
-object InTheNewArticle : KScreen<InTheNewArticle>() {
+object ArticleScreen : KScreen<ArticleScreen>() {
     override val layoutId: Int? = null
     override val viewClass: Class<*>? = null
 
-    val articleNameInArticle = KTextView {
+    val title = KTextView {
         withId(R.id.articleTitle)
     }
     val pageWebView = KView {

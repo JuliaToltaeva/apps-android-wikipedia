@@ -14,15 +14,15 @@ object InTheNewsScreen : KScreen<InTheNewsScreen>() {
         withId(R.id.toolbar)
     }
 
-    val articleImage = KView {
+    val image = KView {
         withId(R.id.gradient_view)
     }
 
-    val articleText = KTextView {
+    val text = KTextView {
         withText(R.id.story_text_view)
     }
 
-    val items3 = KRecyclerView(
+    val items = KRecyclerView(
         builder = {
             withId(R.id.news_story_items_recyclerview)
         },
