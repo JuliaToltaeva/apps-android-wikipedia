@@ -38,6 +38,4 @@ class InTheNewsItem(matcher: Matcher<View>) : KRecyclerItem<InTheNewsItem>(match
         }
     )
 
-    // возможно тут нужен другой ID
-
 }
