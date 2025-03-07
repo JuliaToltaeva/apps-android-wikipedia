@@ -1,4 +1,4 @@
-package org.wikipedia.homeworks.homework07
+package org.wikipedia.homeworks.homework07.screens
 
 import com.kaspersky.kaspresso.screens.KScreen
 import io.github.kakaocup.kakao.common.views.KView

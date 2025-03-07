@@ -1,4 +1,4 @@
-package org.wikipedia.homeworks.homework07
+package org.wikipedia.homeworks.homework07.recyclers
 
 import android.view.View
 import io.github.kakaocup.kakao.common.views.KView
@@ -6,6 +6,7 @@ import io.github.kakaocup.kakao.recycler.KRecyclerItem
 import io.github.kakaocup.kakao.text.KTextView
 import org.hamcrest.Matcher
 import org.wikipedia.R
+import org.wikipedia.homeworks.homework07.items.TopReadItem
 
 class TopReadItemRecycler(matcher: Matcher<View>) : KRecyclerItem<TopReadItem>(matcher) {
     val baseNumber = KTextView(matcher) {

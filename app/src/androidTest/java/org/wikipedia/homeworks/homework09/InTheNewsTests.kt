@@ -5,12 +5,12 @@ import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import org.junit.Rule
 import org.junit.Test
 import org.wikipedia.R
-import org.wikipedia.homeworks.homework07.ExploreScreen
-import org.wikipedia.homeworks.homework07.ArticleScreen
-import org.wikipedia.homeworks.homework07.InTheNewsScreen
-import org.wikipedia.homeworks.homework07.InTheNewsItem
-import org.wikipedia.homeworks.homework07.InTheNewsItemRec
-import org.wikipedia.homeworks.homework07.InTheNewsScreenRec
+import org.wikipedia.homeworks.homework07.screens.ExploreScreen
+import org.wikipedia.homeworks.homework07.screens.ArticleScreen
+import org.wikipedia.homeworks.homework07.screens.InTheNewsScreen
+import org.wikipedia.homeworks.homework07.items.InTheNewsItem
+import org.wikipedia.homeworks.homework07.recyclers.InTheNewsItemRec
+import org.wikipedia.homeworks.homework07.recyclers.InTheNewsScreenRec
 import org.wikipedia.homeworks.homework08.OnboardingScreen
 import org.wikipedia.main.MainActivity
 

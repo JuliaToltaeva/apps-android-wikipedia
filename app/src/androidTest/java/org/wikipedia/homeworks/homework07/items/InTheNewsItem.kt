@@ -1,4 +1,4 @@
-package org.wikipedia.homeworks.homework07
+package org.wikipedia.homeworks.homework07.items
 
 import android.view.View
 import io.github.kakaocup.kakao.image.KImageView
@@ -8,6 +8,7 @@ import io.github.kakaocup.kakao.text.KTextView
 import org.hamcrest.Matcher
 import org.wikipedia.R
 import org.wikipedia.feed.view.CardHeaderView
+import org.wikipedia.homeworks.homework07.recyclers.InTheNewsItemRec
 
 // Описать блок:
 // - блок In the news (с вложенным ресайклером).

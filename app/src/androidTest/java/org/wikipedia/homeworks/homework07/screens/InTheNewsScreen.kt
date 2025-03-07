@@ -1,4 +1,4 @@
-package org.wikipedia.homeworks.homework07
+package org.wikipedia.homeworks.homework07.screens
 
 import com.kaspersky.kaspresso.screens.KScreen
 import io.github.kakaocup.kakao.common.views.KView
@@ -6,6 +6,7 @@ import io.github.kakaocup.kakao.recycler.KRecyclerView
 import io.github.kakaocup.kakao.text.KButton
 import io.github.kakaocup.kakao.text.KTextView
 import org.wikipedia.R
+import org.wikipedia.homeworks.homework07.recyclers.InTheNewsScreenRec
 
 object InTheNewsScreen : KScreen<InTheNewsScreen>() {
     override val layoutId: Int? = null

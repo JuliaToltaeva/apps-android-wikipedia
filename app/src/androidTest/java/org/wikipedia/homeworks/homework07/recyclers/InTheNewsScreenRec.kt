@@ -1,4 +1,4 @@
-package org.wikipedia.homeworks.homework07
+package org.wikipedia.homeworks.homework07.recyclers
 
 import android.view.View
 import io.github.kakaocup.kakao.recycler.KRecyclerItem
