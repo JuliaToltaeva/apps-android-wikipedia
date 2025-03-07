@@ -9,11 +9,12 @@ import org.wikipedia.R
 
 class InTheNewsItemRec(matcher: Matcher<View>) :
     KRecyclerItem<InTheNewsItemRec>(matcher) {
+
     val image = KImageView(matcher) {
         withId(R.id.horizontal_scroll_list_item_image)
     }
 
-    val text = KTextView(matcher) {
+    val content = KTextView(matcher) {
         withId(R.id.horizontal_scroll_list_item_text)
     }
 }

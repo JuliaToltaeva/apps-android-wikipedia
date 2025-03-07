@@ -10,7 +10,7 @@ import org.wikipedia.homeworks.homework07.ArticleScreen
 import org.wikipedia.homeworks.homework07.InTheNewsScreen
 import org.wikipedia.homeworks.homework07.InTheNewsItem
 import org.wikipedia.homeworks.homework07.InTheNewsItemRec
-import org.wikipedia.homeworks.homework07.InTheNewsItemRecInRec
+import org.wikipedia.homeworks.homework07.InTheNewsScreenRec
 import org.wikipedia.homeworks.homework08.OnboardingScreen
 import org.wikipedia.main.MainActivity
 
@@ -48,7 +48,7 @@ class InTheNewsTests : TestCase() {
                     }
                 }
             InTheNewsScreen.items
-                .childAt<InTheNewsItemRecInRec>(1) {
+                .childAt<InTheNewsScreenRec>(1) {
                     step("click on article #2") {
                         title.click()
                     }

@@ -6,9 +6,18 @@ import io.github.kakaocup.kakao.text.KTextView
 import org.hamcrest.Matcher
 import org.wikipedia.R
 
-class InTheNewsItemRecInRec(matcher: Matcher<View>) :
-    KRecyclerItem<InTheNewsItemRecInRec>(matcher) {
+class InTheNewsScreenRec(matcher: Matcher<View>) :
+    KRecyclerItem<InTheNewsScreenRec>(matcher) {
+
     val title = KTextView(matcher) {
         withId(R.id.view_list_card_item_title)
+    }
+
+    val content = KTextView(matcher) {
+        withId(R.id.view_list_card_item_subtitle)
+    }
+
+    val image = KTextView(matcher) {
+        withId(R.id.view_list_card_item_image)
     }
 }

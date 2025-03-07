@@ -13,7 +13,8 @@ import org.wikipedia.feed.view.CardHeaderView
 // - блок In the news (с вложенным ресайклером).
 
 class InTheNewsItem(matcher: Matcher<View>) : KRecyclerItem<InTheNewsItem>(matcher) {
-    val inTheNewsHeader = KTextView(matcher) {
+
+    val title = KTextView(matcher) {
         withText("In the news")
     }
 

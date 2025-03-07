@@ -3,6 +3,7 @@ package org.wikipedia.homeworks.homework07
 import com.kaspersky.kaspresso.screens.KScreen
 import io.github.kakaocup.kakao.common.views.KView
 import io.github.kakaocup.kakao.recycler.KRecyclerView
+import io.github.kakaocup.kakao.text.KButton
 import io.github.kakaocup.kakao.text.KTextView
 import org.wikipedia.R
 
@@ -10,7 +11,7 @@ object InTheNewsScreen : KScreen<InTheNewsScreen>() {
     override val layoutId: Int? = null
     override val viewClass: Class<*>? = null
 
-    val toolbar = KView {
+    val toolbarBackButton = KButton{
         withId(R.id.toolbar)
     }
 
@@ -18,7 +19,7 @@ object InTheNewsScreen : KScreen<InTheNewsScreen>() {
         withId(R.id.gradient_view)
     }
 
-    val text = KTextView {
+    val context = KTextView {
         withText(R.id.story_text_view)
     }
 
@@ -27,7 +28,7 @@ object InTheNewsScreen : KScreen<InTheNewsScreen>() {
             withId(R.id.news_story_items_recyclerview)
         },
         itemTypeBuilder = {
-            itemType(::InTheNewsItemRecInRec)
+            itemType(::InTheNewsScreenRec)
         }
     )
 
