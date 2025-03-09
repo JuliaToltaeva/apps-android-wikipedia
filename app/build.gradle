@@ -282,13 +282,13 @@ dependencies {
     androidTestImplementation 'com.kaspersky.android-components:kaspresso:1.5.4'
 
     // от 07.03.2025
-    implementation 'com.kaspersky.android-components:kaspresso:1.5.4'
-    implementation 'com.kaspersky.android-components:kaspresso-allure-support:1.5.4'
-    implementation 'com.kaspersky.android-components:kaspresso-ui-automator:1.5.4'
-    implementation 'androidx.test:runner:1.5.2'
-    implementation 'androidx.test:rules:1.5.2'
-    implementation 'androidx.test.espresso:espresso-core:3.5.1'
-    implementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+//    implementation 'com.kaspersky.android-components:kaspresso:1.5.4'
+//    implementation 'com.kaspersky.android-components:kaspresso-allure-support:1.5.4'
+//    implementation 'com.kaspersky.android-components:kaspresso-ui-automator:1.5.4'
+//    implementation 'androidx.test:runner:1.5.2'
+//    implementation 'androidx.test:rules:1.5.2'
+//    implementation 'androidx.test.espresso:espresso-core:3.5.1'
+//    implementation 'androidx.test.uiautomator:uiautomator:2.2.0'
 
 
 }
