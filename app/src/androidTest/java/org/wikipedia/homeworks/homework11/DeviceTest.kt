@@ -1,6 +1,5 @@
 package org.wikipedia.homeworks.homework11
 
-import android.app.UiAutomation
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
 import org.junit.Assert
@@ -10,7 +9,6 @@ import org.wikipedia.R
 import org.wikipedia.homeworks.homework07.items.InTheNewsItem
 import org.wikipedia.homeworks.homework07.recyclers.InTheNewsItemRec
 import org.wikipedia.homeworks.homework07.recyclers.InTheNewsScreenRec
-import org.wikipedia.homeworks.homework07.screens.ArticleScreen
 import org.wikipedia.homeworks.homework07.screens.ExploreScreen
 import org.wikipedia.homeworks.homework07.screens.InTheNewsScreen
 import org.wikipedia.homeworks.homework08.OnboardingScreen
@@ -81,10 +79,12 @@ class DeviceTest : TestCase() {
     @Test
     fun toggleWifiAndCheckArticle() {
         before {
-            device.network.toggleWiFi(false)
+            device.network.toggleWiFi (false)
+            device.network.toggleMobileData (false)
             Thread.sleep(1000)
         }.after {
             device.network.toggleWiFi(true)
+            device.network.toggleMobileData (true)
             Thread.sleep(1000)
         }.run {
             step("click skip button") {
@@ -125,7 +125,11 @@ class DeviceTest : TestCase() {
 
     @Test
     fun changeAndCheckLanguage() {
-        run {
+        before {
+            device.language.switchInApp(Locale.ENGLISH)
+        }.after {
+            device.language.switchInApp(Locale.ENGLISH)
+        }.run {
             step("changeLanguage") {
                 device.language.switchInApp(Locale.ITALY)
                 OnboardingScreen.continueButton
@@ -134,6 +138,13 @@ class DeviceTest : TestCase() {
             step("checkLanguage") {
                 OnboardingScreen.continueButton.containsText("Continua")
             }
+        }
+    }
+
+    @Test
+    fun checkMainActivityIsActive() {
+        activity.scenario.onActivity { activity ->
+            Assert.assertTrue(activity.isFinishing.not())
         }
     }
 }
