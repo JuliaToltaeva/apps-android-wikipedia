@@ -114,30 +114,26 @@ class DeviceTest : TestCase() {
             }
             step("toggle WiFi on") {
                 device.network.toggleWiFi(true)
-                Thread.sleep(3000)
+                Thread.sleep(1000)
             }
             step("no error of connect to Internet") {
                 CannotCorrectToInternetScreen.retryButton.click()
                 Thread.sleep(1000)
             }
-            step("") {
-                InTheNewsScreen.items.childAt<InTheNewsScreenRec>(1) {
-                    step("click on article #1") {
-                        title.click()
-                    }
-                }
+        }
+    }
+
+    @Test
+    fun changeAndCheckLanguage() {
+        run {
+            step("changeLanguage") {
+                device.language.switchInApp(Locale.ITALY)
+                OnboardingScreen.continueButton
+                Thread.sleep(1000)
+            }
+            step("checkLanguage") {
+                OnboardingScreen.continueButton.containsText("Continua")
             }
         }
     }
 }
-
-//    @Test
-//    fun changeLanguage() {
-//        run {
-//            step("") {
-//                device.language.switchInApp(Locale.ITALY)
-//                OnboardingScreen.continueButton
-//            }
-//        }
-//    }
-
