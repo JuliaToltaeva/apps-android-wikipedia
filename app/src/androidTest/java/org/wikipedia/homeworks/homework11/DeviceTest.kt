@@ -130,12 +130,12 @@ class DeviceTest : TestCase() {
         }.after {
             device.language.switchInApp(Locale.ENGLISH)
         }.run {
-            step("changeLanguage") {
+            step("change language") {
                 device.language.switchInApp(Locale.ITALY)
                 OnboardingScreen.continueButton
                 Thread.sleep(1000)
             }
-            step("checkLanguage") {
+            step("check button in Italian") {
                 OnboardingScreen.continueButton.containsText("Continua")
             }
         }
