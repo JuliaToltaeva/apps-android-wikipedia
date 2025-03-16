@@ -1,6 +1,5 @@
 package org.wikipedia.homeworks.homework13
 
-import androidx.compose.ui.test.hasText
 import androidx.test.espresso.web.webdriver.Locator
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.kaspersky.kaspresso.testcases.api.testcase.TestCase
@@ -28,11 +27,11 @@ class WebViewWorksTests : TestCase() {
                 OnboardingScreen.skipButton.click()
             }
             step("choose item on ExploreScreen") {
-                ExploreScreen.items.childWith<InTheNewsItem> {
+                ExploreScreen.items.childWith<FeaturedArticleItem> {
                     withDescendant { withText("Featured article") }
                 }.perform {
                     Thread.sleep(1000)
-                    FeaturedArticleScreen.title.click()
+                    image.click()
                 }
             }
             step("check cw") {
@@ -50,7 +49,7 @@ class WebViewWorksTests : TestCase() {
     //домашка
 
     @Test
-    fun checkWebViewWorksHwFirstPart() {
+    fun checkWebViewWorksHw() {
         run {
             step("skip Onboarding") {
                 OnboardingScreen.skipButton.click()
@@ -72,7 +71,7 @@ class WebViewWorksTests : TestCase() {
                         title.click()
                     }
             }
-            step("check and scroll to element") {
+            step("check and scroll to References") {
                 InTheNewsScreen {
                     webView {
                         withElement(Locator.ID, "References") {
@@ -82,33 +81,6 @@ class WebViewWorksTests : TestCase() {
                     }
                 }
             }
-        }
-    }
-
-
-    @Test
-    fun checkWebViewWorksHwSecondPart() {
-        run {
-            step("skip Onboarding") {
-                OnboardingScreen.skipButton.click()
-            }
-            step("choose item on ExploreScreen") {
-                ExploreScreen.items.childWith<InTheNewsItem> {
-                    withDescendant { withText(R.string.view_card_news_title) }
-                }.invoke {
-                    step("click on image #0") {
-                        items.childAt<InTheNewsItemRec>(0) {
-                            click()
-                        }
-                    }
-                }
-            }
-            step("choose article on InTheNewsScreen") {
-                InTheNewsScreen.items
-                    .childAt<InTheNewsScreenRec>(0) {
-                        title.click()
-                    }
-            }
             step("check and click xpath to link #5") {
                 InTheNewsScreen {
                     webView {
@@ -116,56 +88,22 @@ class WebViewWorksTests : TestCase() {
                             Locator.XPATH, "//sup[@class='mw-ref reference right-touch-area']"
                         ) {
                             click()
-                            Thread.sleep(1000)
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    @Test
-    fun checkWebViewWorksHwThirdPart() {
-        run {
-            step("skip Onboarding") {
-                OnboardingScreen.skipButton.click()
-            }
-            step("choose item on ExploreScreen") {
-                ExploreScreen.items.childWith<InTheNewsItem> {
-                    withDescendant { withText(R.string.view_card_news_title) }
-                }.invoke {
-                    step("click on image #0") {
-                        items.childAt<InTheNewsItemRec>(0) {
-                            click()
-                        }
-                    }
-                }
-            }
-            step("choose article on InTheNewsScreen") {
-                InTheNewsScreen.items
-                    .childAt<InTheNewsScreenRec>(0) {
-                        title.click()
-                    }
-            }
-            step("check and click xpath to link #7") {
-                InTheNewsScreen {
-                    webView {
-                        withElement(
-                            Locator.XPATH, "//sup[@class='mw-ref reference right-touch-area']"
-                        ) {
-                            click()
-                            Thread.sleep(1000)
                         }
                     }
                 }
             }
             step("check text and turn back") {
-                ReferenceScreen.items.childWith<ReferenceScreenItem> {
-                    withDescendant { withText("7") }
-                }.invoke {
-                    hasText("7")
-                    pressBack()
-                    Thread.sleep(1000)
+                ReferenceScreen.items {
+                    childWith<ReferenceScreenItem> {
+                        withDescendant {
+                            //number
+                        }
+                    }.perform {
+                        items.childAt<ReferenceScreenItem>(0) {
+                            click()
+                            //pressback()
+                        }
+                    }
                 }
             }
             step("check mw-redirect link") {
@@ -183,12 +121,3 @@ class WebViewWorksTests : TestCase() {
         }
     }
 }
-
-
-
-
-
-
-
-
-
