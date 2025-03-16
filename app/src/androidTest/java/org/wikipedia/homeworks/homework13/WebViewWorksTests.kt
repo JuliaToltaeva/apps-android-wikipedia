@@ -168,6 +168,18 @@ class WebViewWorksTests : TestCase() {
                     Thread.sleep(1000)
                 }
             }
+            step("check mw-redirect link") {
+                InTheNewsScreen {
+                    webView {
+                        withElement(
+                            Locator.XPATH, "//sup[@class='mw-redirect']"
+                        ) {
+                            click()
+                            Thread.sleep(1000)
+                        }
+                    }
+                }
+            }
         }
     }
 }
