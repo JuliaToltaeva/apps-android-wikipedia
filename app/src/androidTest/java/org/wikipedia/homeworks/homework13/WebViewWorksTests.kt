@@ -66,18 +66,30 @@ class WebViewWorksTests : TestCase() {
                 ReferenceScreen.index.containsText("5.")
                 device.uiDevice.pressBack()
             }
-//            step("check mw-redirect link") {
-//                InTheNewsScreen {
-//                    webView {
-//                        withElement(
-//                            Locator.XPATH, "//sup[contains(@class,'mw-redirect')]"
-//                        ) {
-//                            click()
-//                            Thread.sleep(1000)
-//                        }
-//                    }
-//                }
-//            }
+            step("click mw-redirect link") {
+                InTheNewsScreen {
+                    webView {
+                        withElement(
+                            Locator.CSS_SELECTOR, "a.mw-redirect:nth-of-type(1)"
+                        ) {
+                            click()
+                        }
+                    }
+                }
+            }
+            step("click Read article button") {
+                AfricanUnionScreen.readArticleButton.click()
+            }
+            step("check and scroll to References") {
+                InTheNewsScreen {
+                    webView {
+                        withElement(Locator.ID, "References") {
+                            scroll()
+                            hasText("References")
+                        }
+                    }
+                }
+            }
         }
     }
 }
