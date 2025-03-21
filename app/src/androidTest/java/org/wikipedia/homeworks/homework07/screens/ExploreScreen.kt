@@ -10,6 +10,7 @@ import org.wikipedia.homeworks.homework07.items.DayHeaderCardViewItem
 import org.wikipedia.homeworks.homework07.items.InTheNewsItem
 import org.wikipedia.homeworks.homework07.items.SearchCardViewItem
 import org.wikipedia.homeworks.homework07.items.TopReadItem
+import org.wikipedia.homeworks.homework13.FeaturedArticleScreen
 
 // Домашнее задание №7. PageObject, списочные элементы.
 // Классы описаний блоков должны быть в отдельных файлах.

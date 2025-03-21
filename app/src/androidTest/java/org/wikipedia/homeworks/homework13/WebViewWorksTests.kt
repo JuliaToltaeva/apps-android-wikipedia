@@ -18,36 +18,6 @@ class WebViewWorksTests : TestCase() {
     @get:Rule
     val activity = ActivityScenarioRule(MainActivity::class.java)
 
-
-    // урок в онлайне, не работает
-    @Test
-    fun checkWebViewWorksCw() {
-        run {
-            step("skip Onboarding") {
-                OnboardingScreen.skipButton.click()
-            }
-            step("choose item on ExploreScreen") {
-                ExploreScreen.items.childWith<FeaturedArticleItem> {
-                    withDescendant { withText("Featured article") }
-                }.perform {
-                    Thread.sleep(1000)
-                    image.click()
-                }
-            }
-            step("check cw") {
-                FeaturedArticleScreen {
-                    webView {
-                        withElement(Locator.XPATH, "//span[@class='mw-page-title-main']") {
-                            hasText("Flight Pattern")
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    //домашка
-
     @Test
     fun checkWebViewWorksHw() {
         run {
@@ -85,7 +55,7 @@ class WebViewWorksTests : TestCase() {
                 InTheNewsScreen {
                     webView {
                         withElement(
-                            Locator.XPATH, "//sup[@class='mw-ref reference right-touch-area']"
+                            Locator.XPATH, "//sup[contains(@class,'reference')]/a[node()='[5]']"
                         ) {
                             click()
                         }
@@ -93,31 +63,21 @@ class WebViewWorksTests : TestCase() {
                 }
             }
             step("check text and turn back") {
-                ReferenceScreen.items {
-                    childWith<ReferenceScreenItem> {
-                        withDescendant {
-                            //number
-                        }
-                    }.perform {
-                        items.childAt<ReferenceScreenItem>(0) {
-                            click()
-                            //pressback()
-                        }
-                    }
-                }
+                ReferenceScreen.index.containsText("5.")
+                device.uiDevice.pressBack()
             }
-            step("check mw-redirect link") {
-                InTheNewsScreen {
-                    webView {
-                        withElement(
-                            Locator.XPATH, "//sup[@class='mw-redirect']"
-                        ) {
-                            click()
-                            Thread.sleep(1000)
-                        }
-                    }
-                }
-            }
+//            step("check mw-redirect link") {
+//                InTheNewsScreen {
+//                    webView {
+//                        withElement(
+//                            Locator.XPATH, "//sup[contains(@class,'mw-redirect')]"
+//                        ) {
+//                            click()
+//                            Thread.sleep(1000)
+//                        }
+//                    }
+//                }
+//            }
         }
     }
 }

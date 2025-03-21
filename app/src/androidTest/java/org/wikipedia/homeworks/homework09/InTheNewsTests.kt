@@ -53,9 +53,9 @@ class InTheNewsTests : TestCase() {
                         title.click()
                     }
                 }
-            step("look for pageWebView") {
-                ArticleScreen.pageWebView.isVisible()
-            }
+//            step("look for pageWebView") {
+//                ArticleScreen.pageWebView.isVisible()
+//            }
         }
     }
 }

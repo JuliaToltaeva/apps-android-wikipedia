@@ -5,6 +5,7 @@ import io.github.kakaocup.kakao.common.views.KView
 import io.github.kakaocup.kakao.recycler.KRecyclerView
 import io.github.kakaocup.kakao.text.KButton
 import io.github.kakaocup.kakao.text.KTextView
+import io.github.kakaocup.kakao.web.KWebView
 import org.wikipedia.R
 import org.wikipedia.homeworks.homework07.recyclers.InTheNewsScreenRec
 
@@ -32,5 +33,9 @@ object InTheNewsScreen : KScreen<InTheNewsScreen>() {
             itemType(::InTheNewsScreenRec)
         }
     )
+
+    val webView = KWebView {
+        withId(R.id.page_web_view)
+    }
 
 }

@@ -12,7 +12,7 @@ class SearchCardViewItem(matcher: Matcher<View>) : KRecyclerItem<SearchCardViewI
         withDrawable(R.drawable.ic_search_white_24dp)
     }
 
-    val searchText = KTextView(matcher) {
+    val text = KTextView(matcher) {
         withText(R.string.search_hint)
     }
 
