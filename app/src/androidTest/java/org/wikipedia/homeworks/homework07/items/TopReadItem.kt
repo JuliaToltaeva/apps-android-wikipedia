@@ -14,7 +14,7 @@ import org.wikipedia.homeworks.homework07.recyclers.TopReadItemRecycler
 // - блок Top Read (с вложенным ресайклером),
 
 class TopReadItem(matcher: Matcher<View>) : KRecyclerItem<TopReadItem>(matcher) {
-    val headerTopRead = KTextView(matcher) {
+    val title = KTextView(matcher) {
         withId(R.id.view_card_header_title)
     }
 
